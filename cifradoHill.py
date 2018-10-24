@@ -154,8 +154,13 @@ def main():
             cifrar()
     
         if opcion == 2:
+<<<<<<< HEAD
             print "solucionar"
             #solucionar()
+=======
+            #solucionar()
+            print "solucionar"
+>>>>>>> 214e4240a13e3ab0c895d51220f7cce8a4462b61
 
 
 main()
