@@ -147,7 +147,8 @@ def main():
             cifrar()
     
         if opcion == 2:
-            solucionar()
+            #solucionar()
+            print "solucionar"
 
 
 main()
