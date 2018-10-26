@@ -4,7 +4,7 @@ Guillermo Sandoval
 Cifrado de Hill con matrices 2xn
 '''
 import math
-from numpy.linalg import inv
+import numpy
 
 
 #Diccionario para convertir el valor ingresado a numeros
@@ -85,9 +85,64 @@ def solucionar():
     diccionario2 = cba(diccionario2)
 
     matriztexto = []
-    cifrado = []
+    descifrado = []
+    final = []
+    enviar = ""
 
+
+
+    cifrado = raw_input("Ingree el texto a solucionar: ")
+    llave = raw_input("Ingrese la llave utilizada para cifrar: ")
+
+    if len(cifrado)%2 != 0:
+        cifrado = cifrado + "_"
+
+    for i in range(0,len(cifrado)):
+        matriztexto.append(diccionario[cifrado[i]])
     
+    a = int(llave[0])
+    b = int(llave[1])
+    c = int(llave[2])
+    d = int(llave[3])
+
+    matrizllave = [[a,c],[b,d]]
+    llaveAlterada = [[d,c*-1],[b*-1,a]]
+    determinante = int(numpy.linalg.det(matrizllave))
+    determinante = determinante%29
+
+    #calcular inverso de determinante por modulo inverso
+    #https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
+    inv = pow(determinante, 27,29)
+
+    llaveAlterada[0][0] = (llaveAlterada[0][0]*inv)%29
+    llaveAlterada[1][0] = (llaveAlterada[1][0]*inv)%29
+    llaveAlterada[0][1] = (llaveAlterada[0][1]*inv)%29
+    llaveAlterada[1][1] = (llaveAlterada[1][1]*inv)%29
+
+    x = 0
+    y = 1
+    while y<len(cifrado):
+        a = (llaveAlterada[0][0] * matriztexto[x]) + (llaveAlterada[1][0] * matriztexto[y])
+        b = (llaveAlterada[0][1] * matriztexto[x]) + (llaveAlterada[1][1] * matriztexto[y])
+
+        a = a%29
+        b = b%29
+
+        descifrado.append(a)
+        descifrado.append(b)
+
+        x = x + 2
+        y + y + 2
+
+    for i in range(0,len(cifrado)):
+        final.append(diccionario2[str(descifrado[i])])
+
+    #imprimir descifrado
+    for i in range(0,len(final)):
+        enviar = enviar + final[i]
+
+    print enviar
+
 
 
 def main():
@@ -98,8 +153,8 @@ def main():
             cifrar()
     
         if opcion == 2:
-            #solucionar()
-            print "solucionar"
+            solucionar()
+            #print "solucionar"
 
 
 main()
