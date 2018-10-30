@@ -121,10 +121,10 @@ def solucionar():
 
     x = 0
     y = 1
-    print matriztexto
+    #print matriztexto
     while y<len(cifrado):
-        a = (llaveAlterada[0][0] * matriztexto[x]) + (llaveAlterada[1][0] * matriztexto[y])
-        b = (llaveAlterada[0][1] * matriztexto[x]) + (llaveAlterada[1][1] * matriztexto[y])
+        a = (llaveAlterada[0][0] * matriztexto[x]) + (llaveAlterada[0][1] * matriztexto[y])
+        b = (llaveAlterada[1][0] * matriztexto[x]) + (llaveAlterada[1][1] * matriztexto[y])
 
         a = a%29
         b = b%29
@@ -149,7 +149,7 @@ def solucionar():
 def main():
     opcion = 9
     while opcion != 0:
-        opcion = input("Ingrese 1 para cifrar y 2 para descifrar: ")
+        opcion = input("Ingrese 1 para cifrar, 2 para descifrar y 0 para salir: ")
         if opcion == 1:
             cifrar()
     
