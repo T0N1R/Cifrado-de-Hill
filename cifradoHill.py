@@ -121,6 +121,7 @@ def solucionar():
 
     x = 0
     y = 1
+    print matriztexto
     while y<len(cifrado):
         a = (llaveAlterada[0][0] * matriztexto[x]) + (llaveAlterada[1][0] * matriztexto[y])
         b = (llaveAlterada[0][1] * matriztexto[x]) + (llaveAlterada[1][1] * matriztexto[y])
@@ -132,7 +133,7 @@ def solucionar():
         descifrado.append(b)
 
         x = x + 2
-        y + y + 2
+        y = y + 2
 
     for i in range(0,len(cifrado)):
         final.append(diccionario2[str(descifrado[i])])
