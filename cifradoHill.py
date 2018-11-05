@@ -4,7 +4,7 @@ Guillermo Sandoval
 Cifrado de Hill con matrices 2xn
 '''
 import math
-#import numpy
+import numpy
 
 
 #Diccionario para convertir el valor ingresado a numeros
@@ -39,9 +39,12 @@ def cifrar():
 
     #Ingresa Matriz y llave
     #Lectura del archivo de texto
-    archivo = open("cifrado.txt")
+    archivo = open("C:\Users\Antonio\Documents\Stuff\Cifrado-de-Hill\cifrado.txt")
+
+    texto = ""
+
     for line in archivo:
-        texto += line.strip()
+        texto = line.strip()
     archivo.close()
     #texto = raw_input("Ingrese el texto a cifrar: ")
     llave = raw_input("Ingrese 4 numeros para tener la llave (Numeros de 0 a 9 consecutivos): ")
@@ -102,7 +105,16 @@ def solucionar():
     final = []
     enviar = ""
 
-    cifrado = raw_input("Ingree el texto a solucionar: ")
+    #Ingresa Matriz y llave
+    #Lectura del archivo de texto
+    archivo = open("C:\Users\Antonio\Documents\Stuff\Cifrado-de-Hill\cifrado.txt")
+
+    cifrado = ""
+
+    for line in archivo:
+        cifrado = line.strip()
+    archivo.close()
+
     llave = raw_input("Ingrese la llave utilizada para cifrar: ")
 
     if len(cifrado)%2 != 0:
