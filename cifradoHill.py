@@ -91,7 +91,6 @@ def cifrar():
     f = open("C:\Users\Antonio\Documents\Stuff\Cifrado-de-Hill\cifrado.txt", "w")
     f.write(enviar)
     print enviar
-    print enviar
     
 
 def solucionar():
@@ -186,7 +185,6 @@ def main():
     
         if opcion == 2:
             solucionar()
-            #print "solucionar"
 
 
 main()
