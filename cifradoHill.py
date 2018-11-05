@@ -53,6 +53,7 @@ def cifrar():
     if len(texto)%2 != 0:
         texto = texto + " "
     
+    #convertir texto a mayuscula
     texto = texto.upper()
 
     #crear matriz para llave
