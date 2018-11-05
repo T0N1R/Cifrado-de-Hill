@@ -22,9 +22,11 @@ def cba(diccionario2):
 
         
 def cifrar():
+    #Se define un diccionario con un valor para cada caracter en letras mayusculas, para cada caracter un numero
     diccionario = {}
     diccionario = abc(diccionario)
 
+    #Se define el inverso al diccionario1, para cada numero un caracter
     diccionario2 = {}
     diccionario2 = cba(diccionario2)
 
@@ -37,7 +39,7 @@ def cifrar():
 
     #Ingresa Matriz y llave
     texto = raw_input("Ingrese el texto a cifrar: ")
-    llave = raw_input("Ingrese 4 numeros para tener la llave: ")
+    llave = raw_input("Ingrese 4 numeros para tener la llave (Numeros de 0 a 9 consecutivos): ")
 
     #convertir len de texto en par agregando un espacio si es necesario.
     if len(texto)%2 != 0:
@@ -55,12 +57,15 @@ def cifrar():
     x = 0
     y = 1
     while y<len(texto):
+        #Se multiplican las llaves de la matriz por una matriz del rexto para encriptarlo
         a = (matrizllave[0] * matriztexto[x]) + (matrizllave[2] * matriztexto[y])
         b = (matrizllave[1] * matriztexto[x]) + (matrizllave[3] * matriztexto[y])
 
+        #Se emplea el modulo 29 por el abecedario
         a = a%29
         b = b%29
 
+        #En una lista escribe el dato y lo adjunta en una cadena
         cifrado.append(a)
         cifrado.append(b)
 
@@ -78,18 +83,19 @@ def cifrar():
     
 
 def solucionar():
+    #Vuelve a definir el diccionario
     diccionario = {}
     diccionario = abc(diccionario)
 
+    #Vuelve a definir el segundo diccionario para definir los numero a letras
     diccionario2 = {}
     diccionario2 = cba(diccionario2)
 
+    #Se define una matriz de descifrado para el inverso de la matriz de cifrado brindado los numeros que se emplearon para cifrar
     matriztexto = []
     descifrado = []
     final = []
     enviar = ""
-
-
 
     cifrado = raw_input("Ingree el texto a solucionar: ")
     llave = raw_input("Ingrese la llave utilizada para cifrar: ")
@@ -105,6 +111,7 @@ def solucionar():
     c = int(llave[2])
     d = int(llave[3])
 
+    #La matriz alterada
     matrizllave = [[a,c],[b,d]]
     llaveAlterada = [[d,c*-1],[b*-1,a]]
     determinante = int(numpy.linalg.det(matrizllave))
