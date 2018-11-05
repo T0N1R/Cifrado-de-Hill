@@ -87,6 +87,10 @@ def cifrar():
     for i in range(0,len(final)):
         enviar = enviar + final[i]
 
+    #editar el archivo .txt
+    f = open("C:\Users\Antonio\Documents\Stuff\Cifrado-de-Hill\cifrado.txt", "w")
+    f.write(enviar)
+    print enviar
     print enviar
     
 
@@ -166,6 +170,9 @@ def solucionar():
     for i in range(0,len(final)):
         enviar = enviar + final[i]
 
+    #editar el archivo .txt
+    f = open("C:\Users\Antonio\Documents\Stuff\Cifrado-de-Hill\cifrado.txt", "w")
+    f.write(enviar)
     print enviar
 
 
